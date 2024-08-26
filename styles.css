@@ -1,21 +1,21 @@
+/* styles.css */
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
     background-color: #f0f0f0;
 }
 
 .carousel {
     position: relative;
-    width: 90%;
+    width: 60%;
     max-width: 800px;
     overflow: hidden;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-images {
@@ -23,12 +23,17 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-images img {
-    width: 100%;
-    height: auto;
+.carousel-image {
+    min-width: 100%;
+    display: none;
+    border-radius: 10px;
 }
 
-.carousel-btn {
+.carousel-image.active {
+    display: block;
+}
+
+.carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -37,18 +42,18 @@ body {
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 4px;
+    z-index: 100;
 }
 
-.prev-btn {
+#prevButton {
     left: 10px;
 }
 
-.next-btn {
+#nextButton {
     right: 10px;
 }
 
-.prev-btn:disabled, .next-btn:disabled {
-    opacity: 0.5;
+.carousel-button:disabled {
+    background-color: rgba(0, 0, 0, 0.2);
     cursor: not-allowed;
 }

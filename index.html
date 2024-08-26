@@ -1,10 +1,21 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Improved carrousel</title>
+    <title>Image Carousel</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="carousel">
+        <button id="prevButton" class="carousel-button" onclick="prevImage()">&#10094;</button>
+        <div class="carousel-images">
+            <img src="images/image_1.jpg" alt="Image 1" class="carousel-image active">
+            <img src="images/image_2.jpeg" alt="Image 2" class="carousel-image">
+            <img src="images/image_3.jpeg" alt="Image 3" class="carousel-image">
+        </div>
+        <button id="nextButton" class="carousel-button" onclick="nextImage()">&#10095;</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
