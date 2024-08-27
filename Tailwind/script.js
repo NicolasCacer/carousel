@@ -1,18 +1,44 @@
-const container = document.getElementById('photo');
+const photo = document.getElementById('photo');
 const left = document.getElementById('left');
 const right = document.getElementById('right');
 
+const images = ['../images/image_1.jpg','../images/image_2.jpeg','../images/image_3.jpeg']
+let index = 0;
 
-right.addEventListener('mouseover',events =>{
-    right.style.opacity = 0.5;
-})
-right.addEventListener('mouseout',events =>{
-    right.style.opacity = 1;
-})
+function UpdateButtons(){
+    if (index == 0){
+        left.style.visibility = 'hidden';
+    }
+    else if (index == images.length-1){
+        right.style.visibility = 'hidden';
+    }
+    else {
+        right.style.visibility = 'visible';
+        left.style.visibility = 'visible';
+    }
+}
+UpdateButtons();
 
-left.addEventListener('mouseover',events =>{
-    left.style.opacity = 0.5;
-})
-left.addEventListener('mouseout',events =>{
-    left.style.opacity = 1;
-})
+right.addEventListener('click', function(){
+    if (index <images.length-1){
+        photo.style.opacity = 0;
+        photo.addEventListener('transitionend', function(){
+            index++;
+            photo.src = images[index];
+            photo.style.opacity = 1;
+            UpdateButtons();
+        },{once:true})
+    }
+});
+
+left.addEventListener('click', function(){
+    if (index > 0){
+        photo.style.opacity = 0;
+        photo.addEventListener('transitionend', function(){
+            index--;
+            photo.src = images[index];
+            photo.style.opacity = 1;
+            UpdateButtons();
+        },{once:true})
+    }
+});
