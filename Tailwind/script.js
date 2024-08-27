@@ -7,14 +7,14 @@ let index = 0;
 
 function UpdateButtons(){
     if (index == 0){
-        left.style.visibility = 'hidden';
+        left.style.opacity = 0;
     }
     else if (index == images.length-1){
-        right.style.visibility = 'hidden';
+        right.style.opacity = 0;
     }
     else {
-        right.style.visibility = 'visible';
-        left.style.visibility = 'visible';
+        right.style.opacity = 1;
+        left.style.opacity = 1;
     }
 }
 UpdateButtons();
